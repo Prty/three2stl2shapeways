@@ -25,8 +25,14 @@ function init() {
 	//
 
 	var stlObjectExported = stlFromGeometry( geometry, {download: false} );
-	console.log(stlObjectExported);
-
+	//console.log(stlObjectExported);
+	$.post(
+        'http://www.shiroari.com/3dtweet/php/post.php',{
+          'stl': stlObjectExported
+        },function(data){
+          alert(data);
+        }
+      );
 	// this code exports into stl the same as above but also downloads the file
 	//console.log( stlFromGeometry( geometry, {download:true} ) )
 }
