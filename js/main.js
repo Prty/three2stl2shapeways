@@ -24,6 +24,12 @@ function init() {
 	// this is where the exporting happens
 	//
 
+	
+	// this code exports into stl the same as above but also downloads the file
+	//console.log( stlFromGeometry( geometry, {download:true} ) )
+}
+function makeStl(){
+	console.log("fun");
 	var stlObjectExported = stlFromGeometry( geometry, {download: false} );
 	//console.log(stlObjectExported);
 	$.post(
@@ -33,8 +39,6 @@ function init() {
           alert(data);
         }
       );
-	// this code exports into stl the same as above but also downloads the file
-	//console.log( stlFromGeometry( geometry, {download:true} ) )
 }
 
 function animate() {
