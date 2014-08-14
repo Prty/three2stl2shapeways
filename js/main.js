@@ -36,7 +36,7 @@ function makeStl(){
         'http://www.shiroari.com/3dtweet/php/post.php',{
           'stl': stlObjectExported
         },function(data){
-          alert(data);
+          console.log(data);
         }
       );
 }

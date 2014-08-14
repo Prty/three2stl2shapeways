@@ -77,9 +77,10 @@ $res_m = mysql_query( "INSERT INTO 3dt(id,stl) VALUES ('$id','$file_name')", $li
 	}
 
 	$pin = readline("Pin: ");
-
+	echo $pin;
 	try {
 		$info = $oauth_client->getAccessToken("$api_url_base/oauth1/access_token/v1", null, $pin);
+		echo $info['oauth_token'];
 		if ( array_key_exists('oauth_token', $info) &&
 			array_key_exists('oauth_token_secret', $info) ) {
 			echo "Access token        : ".$info['oauth_token']."\n";
@@ -90,7 +91,7 @@ $res_m = mysql_query( "INSERT INTO 3dt(id,stl) VALUES ('$id','$file_name')", $li
 			Error("getAccessToken", null, $info, $oauth_client->getLastResponseInfo(), null);
 		}
 	} catch(OAuthException $E){
-		Error("getAccessToken exception", $E->getMessage(), null, $oauth_client->getLastResponseInfo(), $E->debugInfo);
+		echo "fff";
 	}
 
 
