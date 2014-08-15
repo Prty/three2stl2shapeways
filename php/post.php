@@ -70,7 +70,7 @@ try {
 		//print_r($json);
 		$modelId = $json->{'modelId'};
 		$data = array(
-			"isPublic" => 0,
+			"isPublic" => 1,
 			"title" => "partycube",
 			"description" => "this is partycube",
 			"isDownloadable" => 1,
