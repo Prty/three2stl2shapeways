@@ -67,10 +67,28 @@ try {
 		PrintJsonLastError();
 		var_dump($response);
 	} else {
-		print_r($json);
+		//print_r($json);
+		$modelId = $json->{'modelId'};
+		$data = array(
+			"isPublic" => 0,
+			"title" => "partycube",
+			"description" => "this is partycube",
+			"isDownloadable" => 1,
+			"viewState" => 1,
+		);
+		$data_string = json_encode($data);
+		$oauth->fetch(
+		$api_url_base ."/models/". $modelId . "/info/v1/",
+			$data_string,
+			OAUTH_HTTP_METHOD_PUT
+		);
+		$response = $oauth->getLastResponse();
+		$json = json_decode($response);
+		
+		print $json->{'modelId'};
 	}
 } catch(OAuthException $E) {
-	Error("fetch exception", $E->getMessage(), null, $oauth->getLastResponseInfo(), $E->debugInfo);
+		Error("fetch exception", $E->getMessage(), null, $oauth->getLastResponseInfo(), $E->debugInfo);
 }
 
 

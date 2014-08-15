@@ -36,7 +36,8 @@ function makeStl(){
         'http://www.shiroari.com/3dtweet/php/post.php',{
           'stl': stlObjectExported
         },function(data){
-          console.log(data);
+          var _urlData = "http://www.shapeways.com/model/"+data+"/";
+		document.getElementById("makes").innerHTML='<a href="'+_urlData+'" target="_blank">'+_urlData+'</a>';
         }
       );
 }
